@@ -1,6 +1,7 @@
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.decorators import api_view
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 from rest_framework.filters import SearchFilter
 
 from logistic.models import Product, Stock
@@ -23,6 +24,7 @@ class StockViewSet(ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ['=positions__product__id']
     pagination_class = LimitOffsetPagination
+
 
 @api_view(['GET'])
 def sample_view(request):
