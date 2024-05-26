@@ -39,9 +39,9 @@ jobs:
         with:
           python-version: "3.10"
       - name: Установка зависимостей
-        run: pip install -r stock_products/requirements.txt
+        run: pip install -r stocks_products/requirements.txt
       - name: Линтинг
-        run: flake8 stock_products/logistic/ --exclude stock_products/logistic/migrations/
+        run: flake8 stocks_products/logistic/ --exclude stocks_products/logistic/migrations/
       - name: Тестирование
         run: python manage.py test
         env:
@@ -58,4 +58,4 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          script: bash /root/Practice_server/stock_products/deploy.sh
+          script: bash /root/Practice_server/stocks_products/deploy.sh
